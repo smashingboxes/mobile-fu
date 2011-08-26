@@ -82,11 +82,11 @@ module ActionController
       # the device making the request is matched to a device in our regex.
 
       def is_mobile_device?
-        !!mobile_device
+        !!mobile_device && !is_device?('ipad')
       end
 
       def mobile_device
-        request.headers['X_MOBILE_DEVICE'] && !is_device?('ipad')
+        request.headers['X_MOBILE_DEVICE']
       end
 
       # Can check for a specific user agent
