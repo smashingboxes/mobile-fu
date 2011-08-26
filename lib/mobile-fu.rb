@@ -86,7 +86,7 @@ module ActionController
       end
 
       def mobile_device
-        request.headers['X_MOBILE_DEVICE']
+        request.headers['X_MOBILE_DEVICE'] && !is_device?('ipad')
       end
 
       # Can check for a specific user agent
